@@ -7,21 +7,7 @@
 
 import UIKit
 
-final class CounterViewController: UIViewController {
-
-    private enum Section {
-        case main
-    }
-
-    @IBOutlet private weak var collectionView: UICollectionView! {
-        didSet {
-            let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-            let layout = UICollectionViewCompositionalLayout.list(using: config)
-            collectionView.collectionViewLayout = layout
-        }
-    }
-
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
+final class CounterViewController: UITableViewController {
 
     static func instantiate() -> CounterViewController {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: Bundle(for: self))
@@ -31,38 +17,11 @@ final class CounterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGroupedBackground
-        setupDataSource()
-        setupInitialData()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let indexPath = IndexPath(row: 50, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .top, animated: true)
-    }
-
-    private func setupDataSource() {
-        let cellRegistration = UICollectionView
-            .CellRegistration<UICollectionViewListCell, Int> { cell, indexPath, item in
-                var content = cell.defaultContentConfiguration()
-                content.text = item.description
-                cell.contentConfiguration = content
-            }
-        dataSource = UICollectionViewDiffableDataSource<Section, Int>(
-            collectionView: collectionView
-        ) { collectionView, indexPath, identifier in
-            return collectionView.dequeueConfiguredReusableCell(
-                using: cellRegistration,
-                for: indexPath,
-                item: identifier
-            )
-        }
-    }
-
-    private func setupInitialData() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(Array(0..<100))
-        dataSource.apply(snapshot, animatingDifferences: false)
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        let indexPath = IndexPath(row: 5, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .top, animated: false)
     }
 }
