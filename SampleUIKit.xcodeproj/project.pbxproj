@@ -37,6 +37,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD16231C2A9857AB000FA188 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD884B242A45698C00B70487 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DD16231D2A9857B7000FA188 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DD884B292A45698D00B70487 /* Assets.xcassets */,
+				DD884B2B2A45698D00B70487 /* LaunchScreen.storyboard */,
+				DD884B262A45698C00B70487 /* Main.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		DD884B142A45698C00B70487 = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +76,8 @@
 			children = (
 				DD884B202A45698C00B70487 /* AppDelegate.swift */,
 				DD884B222A45698C00B70487 /* SceneDelegate.swift */,
-				DD884B242A45698C00B70487 /* ViewController.swift */,
-				DD884B262A45698C00B70487 /* Main.storyboard */,
-				DD884B292A45698D00B70487 /* Assets.xcassets */,
-				DD884B2B2A45698D00B70487 /* LaunchScreen.storyboard */,
+				DD16231C2A9857AB000FA188 /* ViewController */,
+				DD16231D2A9857B7000FA188 /* Resource */,
 				DD884B2E2A45698D00B70487 /* Info.plist */,
 			);
 			path = SampleUIKit;
