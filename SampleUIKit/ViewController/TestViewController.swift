@@ -9,6 +9,8 @@ import UIKit
 
 final class TestViewController: UIViewController {
 
+    @IBOutlet private weak var textField: UITextField!
+
     static func instantiate() -> TestViewController {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: Bundle(for: self))
         return storyboard.instantiateInitialViewController() as! TestViewController
@@ -16,5 +18,10 @@ final class TestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textField.becomeFirstResponder()
     }
 }
