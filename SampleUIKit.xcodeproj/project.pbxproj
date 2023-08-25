@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DD16231F2A987283000FA188 /* SampleAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16231E2A987283000FA188 /* SampleAnimationViewController.swift */; };
 		DD1623212A9872A9000FA188 /* SampleAnimationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1623202A9872A9000FA188 /* SampleAnimationViewController.storyboard */; };
+		DD1623232A9876B6000FA188 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1623222A9876B6000FA188 /* TestViewController.swift */; };
+		DD1623272A987758000FA188 /* TestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1623262A987758000FA188 /* TestViewController.storyboard */; };
 		DD884B212A45698C00B70487 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD884B202A45698C00B70487 /* AppDelegate.swift */; };
 		DD884B232A45698C00B70487 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD884B222A45698C00B70487 /* SceneDelegate.swift */; };
 		DD884B252A45698C00B70487 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD884B242A45698C00B70487 /* MainViewController.swift */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		DD16231E2A987283000FA188 /* SampleAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAnimationViewController.swift; sourceTree = "<group>"; };
 		DD1623202A9872A9000FA188 /* SampleAnimationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleAnimationViewController.storyboard; sourceTree = "<group>"; };
+		DD1623222A9876B6000FA188 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		DD1623262A987758000FA188 /* TestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestViewController.storyboard; sourceTree = "<group>"; };
 		DD884B1D2A45698C00B70487 /* SampleUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD884B202A45698C00B70487 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD884B222A45698C00B70487 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				DD884B242A45698C00B70487 /* MainViewController.swift */,
+				DD1623222A9876B6000FA188 /* TestViewController.swift */,
 				DD16231E2A987283000FA188 /* SampleAnimationViewController.swift */,
 			);
 			path = ViewController;
@@ -56,6 +61,7 @@
 				DD884B292A45698D00B70487 /* Assets.xcassets */,
 				DD884B2B2A45698D00B70487 /* LaunchScreen.storyboard */,
 				DD884B262A45698C00B70487 /* MainViewController.storyboard */,
+				DD1623262A987758000FA188 /* TestViewController.storyboard */,
 				DD1623202A9872A9000FA188 /* SampleAnimationViewController.storyboard */,
 			);
 			path = Resource;
@@ -150,6 +156,7 @@
 				DD1623212A9872A9000FA188 /* SampleAnimationViewController.storyboard in Resources */,
 				DD884B2D2A45698D00B70487 /* LaunchScreen.storyboard in Resources */,
 				DD884B2A2A45698D00B70487 /* Assets.xcassets in Resources */,
+				DD1623272A987758000FA188 /* TestViewController.storyboard in Resources */,
 				DD884B282A45698C00B70487 /* MainViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1623232A9876B6000FA188 /* TestViewController.swift in Sources */,
 				DD884B252A45698C00B70487 /* MainViewController.swift in Sources */,
 				DD884B212A45698C00B70487 /* AppDelegate.swift in Sources */,
 				DD884B232A45698C00B70487 /* SceneDelegate.swift in Sources */,

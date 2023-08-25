@@ -9,10 +9,11 @@ import UIKit
 
 final class SampleAnimationViewController: UIViewController {
 
-    @IBOutlet private weak var blockLabel: UILabel! {
-        didSet {
-            blockLabel.alpha = 0.0
-        }
+    @IBOutlet private weak var blockLabel: UILabel!
+
+    @IBAction private func clickTest(_ sender: UIButton) {
+        let viewController = TestViewController.instantiate()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     static func instantiate() -> SampleAnimationViewController {
@@ -27,6 +28,7 @@ final class SampleAnimationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        blockLabel.alpha = 0.0
         UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseIn], animations: {
             self.blockLabel.alpha = 1.0
         }, completion: nil)
