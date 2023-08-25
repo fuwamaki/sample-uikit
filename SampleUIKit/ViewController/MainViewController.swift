@@ -14,11 +14,17 @@ class MainViewController: UIViewController {
     }
 
     private enum ListType: Int, CaseIterable {
-        case animationView
+        case sampleAnimation
 
         var text: String {
             return switch self {
-            case .animationView: "Animation View"
+            case .sampleAnimation: "Sample Animation"
+            }
+        }
+
+        var instantiate: UIViewController {
+            return switch self {
+            case .sampleAnimation: SampleAnimationViewController.instantiate()
             }
         }
     }
@@ -73,5 +79,7 @@ extension MainViewController: UICollectionViewDelegate {
         didSelectItemAt indexPath: IndexPath
     ) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        let viewController = ListType(rawValue: indexPath.row)!.instantiate
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
