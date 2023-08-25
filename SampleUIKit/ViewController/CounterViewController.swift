@@ -35,6 +35,12 @@ final class CounterViewController: UIViewController {
         setupInitialData()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let indexPath = IndexPath(row: 50, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .top, animated: true)
+    }
+
     private func setupDataSource() {
         let cellRegistration = UICollectionView
             .CellRegistration<UICollectionViewListCell, Int> { cell, indexPath, item in
