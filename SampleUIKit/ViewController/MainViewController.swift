@@ -16,11 +16,15 @@ class MainViewController: UIViewController {
     private enum ListType: Int, CaseIterable {
         case sampleAnimation
         case counter
+        case test
+        case white
 
         var text: String {
             return switch self {
             case .sampleAnimation: "Sample Animation"
             case .counter: "Counter"
+            case .test: "Test"
+            case .white: "White"
             }
         }
 
@@ -28,6 +32,8 @@ class MainViewController: UIViewController {
             return switch self {
             case .sampleAnimation: SampleAnimationViewController.instantiate()
             case .counter: CounterViewController.instantiate()
+            case .test: TestViewController.instantiate()
+            case .white: WhiteViewController.instantiate()
             }
         }
     }
