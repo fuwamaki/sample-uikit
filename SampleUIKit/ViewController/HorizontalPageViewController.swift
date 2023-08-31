@@ -67,6 +67,7 @@ final class HorizontalPageViewController: UIViewController {
         let timerProgress = UIPageControlTimerProgress(preferredDuration: 3)
         samplePageControl.progress = timerProgress
         timerProgress.delegate = self
+        timerProgress.resetsToInitialPageAfterEnd = true
         timerProgress.resumeTimer()
     }
 }
@@ -75,7 +76,7 @@ final class HorizontalPageViewController: UIViewController {
 extension HorizontalPageViewController: UIPageControlTimerProgressDelegate {
     func pageControlTimerProgress(_ progress: UIPageControlTimerProgress, shouldAdvanceToPage page: Int) -> Bool {
         UIView.animate(withDuration: 0.3) {
-            self.sampleScrollView.contentOffset.x += self.imageWidth
+            self.sampleScrollView.contentOffset.x = self.imageWidth * CGFloat(page)
         }
         return true
     }
