@@ -31,29 +31,53 @@ final class HorizontalPageViewController: UIViewController {
     private let imageWidth: CGFloat = UIScreen.main.bounds.width
     
     private lazy var images: [UIImage] = {
-        return [UIImage(resource: .fuwaBackground),
-                UIImage(resource: .fuwaBackground),
-                UIImage(resource: .fuwaBackground)]
+        [UIImage(resource: .entertainment),
+         UIImage(resource: .technology),
+         UIImage(resource: .service)]
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImages()
+        setupTimer()
     }
 
     private func setupImages() {
-        sampleScrollView.contentSize = CGSize(width: imageWidth * CGFloat(images.count),
-                                              height: scrollHeight)
+        sampleScrollView.contentSize = CGSize(
+            width: imageWidth * CGFloat(images.count),
+            height: scrollHeight
+        )
         images.enumerated().forEach { index, image in
-            let imageView = UIImageView(frame: CGRect(x: imageWidth * CGFloat(index),
-                                                      y: 0,
-                                                      width: imageWidth,
-                                                      height: scrollHeight))
+            let imageView = UIImageView(
+                frame: CGRect(
+                    x: imageWidth * CGFloat(index),
+                    y: 0,
+                    width: imageWidth,
+                    height: scrollHeight
+                )
+            )
             imageView.image = image
             imageView.contentMode = .scaleAspectFill
             sampleScrollView.addSubview(imageView)
         }
         samplePageControl.numberOfPages = images.count
+    }
+
+    private func setupTimer() {
+        let timerProgress = UIPageControlTimerProgress(preferredDuration: 3)
+        samplePageControl.progress = timerProgress
+        timerProgress.delegate = self
+        timerProgress.resumeTimer()
+    }
+}
+
+// MARK: UIPageControlTimerProgressDelegate
+extension HorizontalPageViewController: UIPageControlTimerProgressDelegate {
+    func pageControlTimerProgress(_ progress: UIPageControlTimerProgress, shouldAdvanceToPage page: Int) -> Bool {
+        UIView.animate(withDuration: 0.3) {
+            self.sampleScrollView.contentOffset.x += self.imageWidth
+        }
+        return true
     }
 }
 
