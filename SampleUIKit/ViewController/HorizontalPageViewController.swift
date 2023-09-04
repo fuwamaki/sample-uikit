@@ -63,24 +63,25 @@ final class HorizontalPageViewController: UIViewController {
         samplePageControl.numberOfPages = images.count
     }
 
+    // TODO: iOS17以上Targetにしたらコメントアウト外す
     private func setupTimer() {
-        let timerProgress = UIPageControlTimerProgress(preferredDuration: 3)
-        samplePageControl.progress = timerProgress
-        timerProgress.delegate = self
-        timerProgress.resetsToInitialPageAfterEnd = true
-        timerProgress.resumeTimer()
+//        let timerProgress = UIPageControlTimerProgress(preferredDuration: 3)
+//        samplePageControl.progress = timerProgress
+//        timerProgress.delegate = self
+//        timerProgress.resetsToInitialPageAfterEnd = true
+//        timerProgress.resumeTimer()
     }
 }
 
 // MARK: UIPageControlTimerProgressDelegate
-extension HorizontalPageViewController: UIPageControlTimerProgressDelegate {
-    func pageControlTimerProgress(_ progress: UIPageControlTimerProgress, shouldAdvanceToPage page: Int) -> Bool {
-        UIView.animate(withDuration: 0.3) {
-            self.sampleScrollView.contentOffset.x = self.imageWidth * CGFloat(page)
-        }
-        return true
-    }
-}
+//extension HorizontalPageViewController: UIPageControlTimerProgressDelegate {
+//    func pageControlTimerProgress(_ progress: UIPageControlTimerProgress, shouldAdvanceToPage page: Int) -> Bool {
+//        UIView.animate(withDuration: 0.3) {
+//            self.sampleScrollView.contentOffset.x = self.imageWidth * CGFloat(page)
+//        }
+//        return true
+//    }
+//}
 
 // MARK: UIScrollViewDelegate
 extension HorizontalPageViewController: UIScrollViewDelegate {

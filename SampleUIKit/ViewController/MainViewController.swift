@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
         case test
         case white
         case horizontalPage
+        case feasibility
 
         var text: String {
             return switch self {
@@ -27,6 +28,7 @@ class MainViewController: UIViewController {
             case .test: "Test"
             case .white: "White"
             case .horizontalPage: "Horizontal Page"
+            case .feasibility: "Feasibility"
             }
         }
 
@@ -37,6 +39,7 @@ class MainViewController: UIViewController {
             case .test: TestViewController.instantiate()
             case .white: WhiteViewController.instantiate()
             case .horizontalPage: HorizontalPageViewController.instantiate()
+            case .feasibility: FeasibilityViewController.instantiate()
             }
         }
     }
