@@ -137,6 +137,8 @@
 			dependencies = (
 			);
 			name = SampleUIKit;
+			packageProductDependencies = (
+			);
 			productName = SampleUIKit;
 			productReference = DD884B1D2A45698C00B70487 /* SampleUIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +167,8 @@
 				Base,
 			);
 			mainGroup = DD884B142A45698C00B70487;
+			packageReferences = (
+			);
 			productRefGroup = DD884B1E2A45698C00B70487 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
