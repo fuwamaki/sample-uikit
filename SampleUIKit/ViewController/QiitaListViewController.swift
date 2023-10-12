@@ -58,9 +58,12 @@ final class QiitaListViewController: UIViewController {
             var config = UIContentUnavailableConfiguration.search()
             config.text = "No results for \"\(text)\""
             config.secondaryText = "Please try again after some time or tap Retry"
-//            var buttonConfig =  UIButton.Configuration.filled()
-//            buttonConfig.title = "Retry"
-//            config.button = buttonConfig
+            var buttonConfig =  UIButton.Configuration.filled()
+            buttonConfig.title = "Retry"
+            config.button = buttonConfig
+            config.buttonProperties.primaryAction = UIAction(handler: { _ in
+                self.search(text: text)
+            })
             self.contentUnavailableConfiguration = config
         case .loading:
             var config = UIContentUnavailableConfiguration.loading()
@@ -117,6 +120,20 @@ final class QiitaListViewController: UIViewController {
         snapshot.appendItems(items)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
+
+    private func search(text: String) {
+        Task {
+            setupUnavailableConfiguration(state: .loading)
+            do {
+                items = try await apiClient.fetchQiitaItem(query: text)
+                setupInitialData()
+                setupUnavailableConfiguration(state: items.isEmpty ? .empty(text: text) : .normal)
+            } catch let error {
+                debugPrint(error.localizedDescription)
+                setupUnavailableConfiguration(state: .error)
+            }
+        }
+    }
 }
 
 // MARK: UISearchBarDelegate
@@ -127,16 +144,6 @@ extension QiitaListViewController: UISearchBarDelegate {
             setupInitialData()
             return
         }
-        Task {
-            setupUnavailableConfiguration(state: .loading)
-            do {
-                items = try await apiClient.fetchQiitaItem(query: searchBarText)
-                setupInitialData()
-                setupUnavailableConfiguration(state: items.isEmpty ? .empty(text: searchBarText) : .normal)
-            } catch let error {
-                debugPrint(error.localizedDescription)
-                setupUnavailableConfiguration(state: .error)
-            }
-        }
+        search(text: searchBarText)
     }
 }
