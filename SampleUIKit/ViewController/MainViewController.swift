@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
         case white
         case horizontalPage
         case feasibility
+        case qiitaList
         case sampleEmpty
 
         var text: String {
@@ -30,6 +31,7 @@ class MainViewController: UIViewController {
             case .white: "White"
             case .horizontalPage: "Horizontal Page"
             case .feasibility: "Feasibility"
+            case .qiitaList: "Qiita List"
             case .sampleEmpty: "Sample Empty"
             }
         }
@@ -42,6 +44,7 @@ class MainViewController: UIViewController {
             case .white: WhiteViewController.instantiate()
             case .horizontalPage: HorizontalPageViewController.instantiate()
             case .feasibility: FeasibilityViewController.instantiate()
+            case .qiitaList: QiitaListViewController.instantiate()
             case .sampleEmpty: SampleEmptyViewController.instantiate()
             }
         }

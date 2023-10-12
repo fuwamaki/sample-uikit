@@ -22,6 +22,10 @@
 		DD3FA5F02AD7BC2B006C8168 /* QiitaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FA5EF2AD7BC2B006C8168 /* QiitaListViewController.swift */; };
 		DD3FA5F22AD7BC3A006C8168 /* SampleEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FA5F12AD7BC3A006C8168 /* SampleEmptyViewController.swift */; };
 		DD3FA5F42AD7BC48006C8168 /* SampleEmptyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3FA5F32AD7BC48006C8168 /* SampleEmptyViewController.storyboard */; };
+		DD3FA5F62AD7C3E4006C8168 /* QiitaListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3FA5F52AD7C3E4006C8168 /* QiitaListViewController.storyboard */; };
+		DD3FA5FA2AD7C529006C8168 /* QiitaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FA5F92AD7C529006C8168 /* QiitaItem.swift */; };
+		DD3FA5FC2AD7C53B006C8168 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FA5FB2AD7C53B006C8168 /* APIClient.swift */; };
+		DD3FA6032AD7D2A1006C8168 /* UIImage+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FA6022AD7D2A1006C8168 /* UIImage+Addition.swift */; };
 		DD884B212A45698C00B70487 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD884B202A45698C00B70487 /* AppDelegate.swift */; };
 		DD884B232A45698C00B70487 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD884B222A45698C00B70487 /* SceneDelegate.swift */; };
 		DD884B252A45698C00B70487 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD884B242A45698C00B70487 /* MainViewController.swift */; };
@@ -47,6 +51,10 @@
 		DD3FA5EF2AD7BC2B006C8168 /* QiitaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaListViewController.swift; sourceTree = "<group>"; };
 		DD3FA5F12AD7BC3A006C8168 /* SampleEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEmptyViewController.swift; sourceTree = "<group>"; };
 		DD3FA5F32AD7BC48006C8168 /* SampleEmptyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleEmptyViewController.storyboard; sourceTree = "<group>"; };
+		DD3FA5F52AD7C3E4006C8168 /* QiitaListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QiitaListViewController.storyboard; sourceTree = "<group>"; };
+		DD3FA5F92AD7C529006C8168 /* QiitaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaItem.swift; sourceTree = "<group>"; };
+		DD3FA5FB2AD7C53B006C8168 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		DD3FA6022AD7D2A1006C8168 /* UIImage+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Addition.swift"; sourceTree = "<group>"; };
 		DD884B1D2A45698C00B70487 /* SampleUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD884B202A45698C00B70487 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD884B222A45698C00B70487 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,8 +86,8 @@
 				DD16232C2AA05846000FA188 /* WhiteViewController.swift */,
 				DD1623322AA075CB000FA188 /* HorizontalPageViewController.swift */,
 				DD1623342AA55DB7000FA188 /* FeasibilityViewController.swift */,
-				DD3FA5F12AD7BC3A006C8168 /* SampleEmptyViewController.swift */,
 				DD3FA5EF2AD7BC2B006C8168 /* QiitaListViewController.swift */,
+				DD3FA5F12AD7BC3A006C8168 /* SampleEmptyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -96,9 +104,34 @@
 				DD16232E2AA05863000FA188 /* WhiteViewController.storyboard */,
 				DD1623302AA075C4000FA188 /* HorizontalPageViewController.storyboard */,
 				DD1623362AA55DC0000FA188 /* FeasibilityViewController.storyboard */,
+				DD3FA5F52AD7C3E4006C8168 /* QiitaListViewController.storyboard */,
 				DD3FA5F32AD7BC48006C8168 /* SampleEmptyViewController.storyboard */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		DD3FA5F72AD7C508006C8168 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FA5F92AD7C529006C8168 /* QiitaItem.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		DD3FA5F82AD7C511006C8168 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FA5FB2AD7C53B006C8168 /* APIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DD3FA6012AD7D28B006C8168 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FA6022AD7D2A1006C8168 /* UIImage+Addition.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DD884B142A45698C00B70487 = {
@@ -125,6 +158,9 @@
 				DD884B202A45698C00B70487 /* AppDelegate.swift */,
 				DD884B222A45698C00B70487 /* SceneDelegate.swift */,
 				DD16231C2A9857AB000FA188 /* ViewController */,
+				DD3FA5F72AD7C508006C8168 /* Entity */,
+				DD3FA5F82AD7C511006C8168 /* Network */,
+				DD3FA6012AD7D28B006C8168 /* Extension */,
 				DD16231D2A9857B7000FA188 /* Resource */,
 			);
 			path = SampleUIKit;
@@ -198,6 +234,7 @@
 				DD16232F2AA05863000FA188 /* WhiteViewController.storyboard in Resources */,
 				DD16232B2A987CB7000FA188 /* CounterViewController.storyboard in Resources */,
 				DD3FA5F42AD7BC48006C8168 /* SampleEmptyViewController.storyboard in Resources */,
+				DD3FA5F62AD7C3E4006C8168 /* QiitaListViewController.storyboard in Resources */,
 				DD1623312AA075C4000FA188 /* HorizontalPageViewController.storyboard in Resources */,
 				DD884B2A2A45698D00B70487 /* Assets.xcassets in Resources */,
 				DD1623272A987758000FA188 /* TestViewController.storyboard in Resources */,
@@ -217,12 +254,15 @@
 				DD16232D2AA05846000FA188 /* WhiteViewController.swift in Sources */,
 				DD884B252A45698C00B70487 /* MainViewController.swift in Sources */,
 				DD3FA5F22AD7BC3A006C8168 /* SampleEmptyViewController.swift in Sources */,
+				DD3FA5FA2AD7C529006C8168 /* QiitaItem.swift in Sources */,
 				DD884B212A45698C00B70487 /* AppDelegate.swift in Sources */,
 				DD1623292A987CAB000FA188 /* CounterViewController.swift in Sources */,
 				DD884B232A45698C00B70487 /* SceneDelegate.swift in Sources */,
+				DD3FA5FC2AD7C53B006C8168 /* APIClient.swift in Sources */,
 				DD16231F2A987283000FA188 /* SampleAnimationViewController.swift in Sources */,
 				DD1623332AA075CB000FA188 /* HorizontalPageViewController.swift in Sources */,
 				DD3FA5F02AD7BC2B006C8168 /* QiitaListViewController.swift in Sources */,
+				DD3FA6032AD7D2A1006C8168 /* UIImage+Addition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
