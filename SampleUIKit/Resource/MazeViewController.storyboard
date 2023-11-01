@@ -46,7 +46,13 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QT0-uq-Jg1" secondAttribute="trailing" constant="16" id="hSG-aM-YLm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Maze" id="XO7-M2-X2B"/>
+                    <navigationItem key="navigationItem" title="Maze" id="XO7-M2-X2B">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="d3J-gp-IZu">
+                            <connections>
+                                <action selector="clickClearButton:" destination="Y6W-OH-hqX" id="eVO-hX-6qG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="QT0-uq-Jg1" id="WzP-Zq-3Em"/>

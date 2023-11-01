@@ -12,6 +12,12 @@ final class MazeViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
+    @IBAction private func clickClearButton(_ sender: UIBarButtonItem) {
+        canvasView.drawing = PKDrawing()
+        items = Array(0..<64).compactMap { CellItem(id: $0) }
+        setupInitialData()
+    }
+
     private enum Section {
         case main
     }
@@ -28,7 +34,7 @@ final class MazeViewController: UIViewController {
         canvasView.canvasDelegate = self
         canvasView.backgroundColor = .clear
         canvasView.drawingPolicy = .anyInput
-        canvasView.tool = PKInkingTool(.pen, color: .blue, width: 7)
+        canvasView.tool = PKInkingTool(.pencil, color: .blue, width: 5)
         return canvasView
     }()
 
@@ -63,10 +69,12 @@ final class MazeViewController: UIViewController {
         let cellRegistration = UICollectionView
             .CellRegistration<UICollectionViewListCell, CellItem> { cell, indexPath, item in
                 var content = cell.defaultContentConfiguration()
+                content.textProperties.font = .systemFont(ofSize: 14)
                 content.text = "\(String(item.id))"
+                var backgroundConfig = cell.defaultBackgroundConfiguration()
+                backgroundConfig.backgroundColor = item.isValid ? UIColor.systemMint : UIColor.systemBackground
+                cell.backgroundConfiguration = backgroundConfig
                 cell.contentConfiguration = content
-                cell.layer.borderWidth = 1
-                cell.layer.borderColor = item.isValid ? UIColor.systemTeal.cgColor : UIColor.gray.cgColor
         }
         dataSource = UICollectionViewDiffableDataSource<Section, CellItem>(
             collectionView: collectionView
@@ -102,6 +110,12 @@ extension MazeViewController: CustomCanvasViewDelegate {
 
 final class CustomCanvasView: PKCanvasView {
     weak var canvasDelegate: CustomCanvasViewDelegate?
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch: UITouch = touches.first!
+        let location = touch.location(in: self)
+        canvasDelegate?.check(location: location)
+    }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch: UITouch = touches.first!
