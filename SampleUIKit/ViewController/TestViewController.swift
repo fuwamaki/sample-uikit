@@ -23,10 +23,15 @@ final class TestViewController: UIViewController {
         Task { @MainActor in
             for await shouldDisplay in testTip.shouldDisplayUpdates {
                 if shouldDisplay {
-                    let controller = TipUIPopoverViewController(testTip, sourceItem: textField)
-                    self.present(controller, animated: true)
-                } else if presentedViewController is TipUIPopoverViewController {
-                    self.dismiss(animated: true)
+                    let tipView = TipUIView(testTip)
+                    view.addSubview(tipView)
+                    NSLayoutConstraint.activate([
+                        tipView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.0),
+                        tipView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16.0),
+                        tipView.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -24.0)
+                    ])
+                } else if let tipView = view.subviews.first(where: { $0 is TipUIView }) {
+                    tipView.removeFromSuperview()
                 }
             }
         }
