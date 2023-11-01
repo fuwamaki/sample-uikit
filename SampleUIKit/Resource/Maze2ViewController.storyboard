@@ -30,24 +30,40 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スタート" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5y-0q-AWs">
+                                <rect key="frame" x="319" y="608.66666666666663" width="58" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ゴール" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DR-e3-P8G">
+                                <rect key="frame" x="334" y="226.66666666666666" width="43" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1AK-d8-3jv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Z4L-8y-ifk" secondAttribute="bottom" priority="750" constant="16" id="3T9-cT-zPP"/>
+                            <constraint firstItem="O5y-0q-AWs" firstAttribute="trailing" secondItem="Z4L-8y-ifk" secondAttribute="trailing" id="8Tt-xi-A2k"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z4L-8y-ifk" secondAttribute="trailing" constant="16" id="9Bn-R0-rQG"/>
+                            <constraint firstItem="O5y-0q-AWs" firstAttribute="top" secondItem="Z4L-8y-ifk" secondAttribute="bottom" constant="2" id="BQu-l2-Na4"/>
                             <constraint firstItem="Z4L-8y-ifk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hpu-G2-KGP" secondAttribute="leading" constant="16" id="GZy-ac-Bmw"/>
                             <constraint firstAttribute="trailing" secondItem="Z4L-8y-ifk" secondAttribute="trailing" priority="750" constant="16" id="Qkg-GS-lWB"/>
+                            <constraint firstItem="Z4L-8y-ifk" firstAttribute="top" secondItem="9DR-e3-P8G" secondAttribute="bottom" constant="2" id="Skd-9c-PxT"/>
                             <constraint firstItem="Z4L-8y-ifk" firstAttribute="centerX" secondItem="Hpu-G2-KGP" secondAttribute="centerX" id="T5O-Pt-NtS"/>
                             <constraint firstItem="Z4L-8y-ifk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1AK-d8-3jv" secondAttribute="top" constant="16" id="acy-AD-q8J"/>
                             <constraint firstItem="Z4L-8y-ifk" firstAttribute="leading" secondItem="Hpu-G2-KGP" secondAttribute="leading" priority="750" constant="16" id="cu4-XO-nTM"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Z4L-8y-ifk" secondAttribute="bottom" constant="16" id="ihI-0A-L9g"/>
                             <constraint firstItem="Z4L-8y-ifk" firstAttribute="centerY" secondItem="Hpu-G2-KGP" secondAttribute="centerY" id="qbJ-F5-Utw"/>
+                            <constraint firstItem="9DR-e3-P8G" firstAttribute="trailing" secondItem="Z4L-8y-ifk" secondAttribute="trailing" id="wVZ-AT-cM6"/>
                             <constraint firstItem="Z4L-8y-ifk" firstAttribute="top" secondItem="1AK-d8-3jv" secondAttribute="top" priority="750" constant="142.66666666666663" id="wtD-Ld-d6B"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Maze" id="cNk-aH-4vz">
-                        <barButtonItem key="rightBarButtonItem" title="Clear" id="0jb-EM-tkJ">
+                        <barButtonItem key="rightBarButtonItem" title="やりなおし" id="0jb-EM-tkJ">
                             <connections>
                                 <action selector="clickClearButton:" destination="E1f-Za-2HA" id="rJZ-JZ-YAc"/>
                             </connections>

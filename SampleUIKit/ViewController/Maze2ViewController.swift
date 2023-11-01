@@ -109,6 +109,17 @@ final class Maze2ViewController: UIViewController {
         snapshot.appendItems(items)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
+
+    private var isShowed: Bool = false
+    private func showPerfectAlert() {
+        guard !isShowed else { return }
+        isShowed = true
+        let alert = UIAlertController(title: "よくできました！！！", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "とじる", style: .default) { _ in
+            self.dismiss(animated: true)
+        })
+        present(alert, animated: true)
+    }
 }
 
 extension Maze2ViewController: UICollectionViewDelegateFlowLayout {
@@ -119,11 +130,50 @@ extension Maze2ViewController: UICollectionViewDelegateFlowLayout {
 
 extension Maze2ViewController: CustomCanvasViewDelegate {
     func check(location: CGPoint) {
-        if let index = items.firstIndex(where: { $0.isRange(collectionViewFrame: collectionView.frame, location: location) }),
+        if let index = items.firstIndex(where: { $0.isRange(
+            collectionViewFrame: collectionView.frame,
+            location: location
+        ) }),
            !items[index].isValid,
            items[index].type.isSpace {
             items[index] = items[index].valid
             setupInitialData()
+        }
+
+        let validIndexList = items.filter { $0.isValid }.compactMap { $0.index }
+        if validIndexList.contains(24),
+           validIndexList.contains(14),
+           validIndexList.contains(16),
+           validIndexList.contains(18),
+           validIndexList.contains(20),
+           validIndexList.contains(22),
+           validIndexList.contains(40),
+           validIndexList.contains(42),
+           validIndexList.contains(44),
+           validIndexList.contains(46),
+           validIndexList.contains(48),
+           validIndexList.contains(66),
+           validIndexList.contains(68),
+           validIndexList.contains(70),
+           validIndexList.contains(72),
+           validIndexList.contains(74),
+           validIndexList.contains(76),
+           validIndexList.contains(92),
+           validIndexList.contains(94),
+           validIndexList.contains(96),
+           validIndexList.contains(98),
+           validIndexList.contains(100),
+           validIndexList.contains(102),
+           validIndexList.contains(118),
+           validIndexList.contains(120),
+           validIndexList.contains(122),
+           validIndexList.contains(124),
+           validIndexList.contains(144),
+           validIndexList.contains(146),
+           validIndexList.contains(150),
+           validIndexList.contains(152),
+           validIndexList.contains(154) {
+            showPerfectAlert()
         }
     }
 }
