@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
         case qiitaList
         case sampleEmpty
         case maze
+        case maze2
 
         var text: String {
             return switch self {
@@ -35,6 +36,7 @@ class MainViewController: UIViewController {
             case .qiitaList: "Qiita List"
             case .sampleEmpty: "Sample Empty"
             case .maze: "Maze"
+            case .maze2: "Maze2"
             }
         }
 
@@ -49,6 +51,7 @@ class MainViewController: UIViewController {
             case .qiitaList: QiitaListViewController.instantiate()
             case .sampleEmpty: SampleEmptyViewController.instantiate()
             case .maze: MazeViewController.instantiate()
+            case .maze2: Maze2ViewController.instantiate()
             }
         }
     }

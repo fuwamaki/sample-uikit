@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E1f-Za-2HA">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Maze-->
+        <scene sceneID="vhL-r0-9Uf">
+            <objects>
+                <viewController storyboardIdentifier="Maze2ViewController" id="E1f-Za-2HA" customClass="Maze2ViewController" customModule="SampleUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hpu-G2-KGP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z4L-8y-ifk">
+                                <rect key="frame" x="16" y="245.66666666666663" width="361" height="361"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Z4L-8y-ifk" secondAttribute="height" multiplier="1:1" id="NmC-tb-zYk"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PEc-6C-CYU">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1AK-d8-3jv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Z4L-8y-ifk" secondAttribute="bottom" priority="750" constant="16" id="3T9-cT-zPP"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z4L-8y-ifk" secondAttribute="trailing" constant="16" id="9Bn-R0-rQG"/>
+                            <constraint firstItem="Z4L-8y-ifk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hpu-G2-KGP" secondAttribute="leading" constant="16" id="GZy-ac-Bmw"/>
+                            <constraint firstAttribute="trailing" secondItem="Z4L-8y-ifk" secondAttribute="trailing" priority="750" constant="16" id="Qkg-GS-lWB"/>
+                            <constraint firstItem="Z4L-8y-ifk" firstAttribute="centerX" secondItem="Hpu-G2-KGP" secondAttribute="centerX" id="T5O-Pt-NtS"/>
+                            <constraint firstItem="Z4L-8y-ifk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1AK-d8-3jv" secondAttribute="top" constant="16" id="acy-AD-q8J"/>
+                            <constraint firstItem="Z4L-8y-ifk" firstAttribute="leading" secondItem="Hpu-G2-KGP" secondAttribute="leading" priority="750" constant="16" id="cu4-XO-nTM"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Z4L-8y-ifk" secondAttribute="bottom" constant="16" id="ihI-0A-L9g"/>
+                            <constraint firstItem="Z4L-8y-ifk" firstAttribute="centerY" secondItem="Hpu-G2-KGP" secondAttribute="centerY" id="qbJ-F5-Utw"/>
+                            <constraint firstItem="Z4L-8y-ifk" firstAttribute="top" secondItem="1AK-d8-3jv" secondAttribute="top" priority="750" constant="142.66666666666663" id="wtD-Ld-d6B"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Maze" id="cNk-aH-4vz">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="0jb-EM-tkJ">
+                            <connections>
+                                <action selector="clickClearButton:" destination="E1f-Za-2HA" id="rJZ-JZ-YAc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Z4L-8y-ifk" id="2Xj-5T-9G0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHZ-KO-3kZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="-34"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DD1501B42AF23CB70040CB7F /* MazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1501B32AF23CB70040CB7F /* MazeViewController.swift */; };
 		DD1501B62AF23CC40040CB7F /* MazeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1501B52AF23CC40040CB7F /* MazeViewController.storyboard */; };
+		DD1501B82AF2E81B0040CB7F /* Maze2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1501B72AF2E81B0040CB7F /* Maze2ViewController.swift */; };
+		DD1501BA2AF2E8270040CB7F /* Maze2ViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1501B92AF2E8270040CB7F /* Maze2ViewController.storyboard */; };
 		DD16231F2A987283000FA188 /* SampleAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16231E2A987283000FA188 /* SampleAnimationViewController.swift */; };
 		DD1623212A9872A9000FA188 /* SampleAnimationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1623202A9872A9000FA188 /* SampleAnimationViewController.storyboard */; };
 		DD1623232A9876B6000FA188 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1623222A9876B6000FA188 /* TestViewController.swift */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		DD1501B32AF23CB70040CB7F /* MazeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeViewController.swift; sourceTree = "<group>"; };
 		DD1501B52AF23CC40040CB7F /* MazeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MazeViewController.storyboard; sourceTree = "<group>"; };
+		DD1501B72AF2E81B0040CB7F /* Maze2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maze2ViewController.swift; sourceTree = "<group>"; };
+		DD1501B92AF2E8270040CB7F /* Maze2ViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Maze2ViewController.storyboard; sourceTree = "<group>"; };
 		DD16231E2A987283000FA188 /* SampleAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAnimationViewController.swift; sourceTree = "<group>"; };
 		DD1623202A9872A9000FA188 /* SampleAnimationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleAnimationViewController.storyboard; sourceTree = "<group>"; };
 		DD1623222A9876B6000FA188 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 				DD3FA5EF2AD7BC2B006C8168 /* QiitaListViewController.swift */,
 				DD3FA5F12AD7BC3A006C8168 /* SampleEmptyViewController.swift */,
 				DD1501B32AF23CB70040CB7F /* MazeViewController.swift */,
+				DD1501B72AF2E81B0040CB7F /* Maze2ViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				DD3FA5F52AD7C3E4006C8168 /* QiitaListViewController.storyboard */,
 				DD3FA5F32AD7BC48006C8168 /* SampleEmptyViewController.storyboard */,
 				DD1501B52AF23CC40040CB7F /* MazeViewController.storyboard */,
+				DD1501B92AF2E8270040CB7F /* Maze2ViewController.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 				DD3FA5F62AD7C3E4006C8168 /* QiitaListViewController.storyboard in Resources */,
 				DD1623312AA075C4000FA188 /* HorizontalPageViewController.storyboard in Resources */,
 				DD1501B62AF23CC40040CB7F /* MazeViewController.storyboard in Resources */,
+				DD1501BA2AF2E8270040CB7F /* Maze2ViewController.storyboard in Resources */,
 				DD884B2A2A45698D00B70487 /* Assets.xcassets in Resources */,
 				DD1623272A987758000FA188 /* TestViewController.storyboard in Resources */,
 				DD884B282A45698C00B70487 /* MainViewController.storyboard in Resources */,
@@ -258,6 +265,7 @@
 			files = (
 				DD1623232A9876B6000FA188 /* TestViewController.swift in Sources */,
 				DD1623352AA55DB7000FA188 /* FeasibilityViewController.swift in Sources */,
+				DD1501B82AF2E81B0040CB7F /* Maze2ViewController.swift in Sources */,
 				DD16232D2AA05846000FA188 /* WhiteViewController.swift in Sources */,
 				DD884B252A45698C00B70487 /* MainViewController.swift in Sources */,
 				DD3FA5F22AD7BC3A006C8168 /* SampleEmptyViewController.swift in Sources */,

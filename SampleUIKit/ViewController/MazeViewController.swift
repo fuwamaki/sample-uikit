@@ -108,7 +108,7 @@ extension MazeViewController: CustomCanvasViewDelegate {
     }
 }
 
-final class CustomCanvasView: PKCanvasView {
+private final class CustomCanvasView: PKCanvasView {
     weak var canvasDelegate: CustomCanvasViewDelegate?
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -124,11 +124,11 @@ final class CustomCanvasView: PKCanvasView {
     }
 }
 
-protocol CustomCanvasViewDelegate: AnyObject {
+private protocol CustomCanvasViewDelegate: AnyObject {
     func check(location: CGPoint)
 }
 
-struct CellItem: Hashable {
+private struct CellItem: Hashable {
     let id: Int
     var isValid: Bool
 
