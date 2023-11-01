@@ -15,11 +15,42 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QT0-uq-Jg1">
+                                <rect key="frame" x="16" y="245.66666666666663" width="361" height="361"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QT0-uq-Jg1" secondAttribute="height" multiplier="1:1" id="ZtO-ya-Ecd"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QY9-Xj-dj6">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="QT0-uq-Jg1" secondAttribute="bottom" priority="750" constant="16" id="9Hg-MO-Rh6"/>
+                            <constraint firstItem="QT0-uq-Jg1" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="AU4-9S-8IC"/>
+                            <constraint firstItem="QT0-uq-Jg1" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" priority="750" constant="16" id="F2x-Qj-2A2"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QT0-uq-Jg1" secondAttribute="bottom" constant="16" id="FQA-5T-63V"/>
+                            <constraint firstItem="QT0-uq-Jg1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" priority="750" constant="142.66666666666663" id="Jlg-6o-yvp"/>
+                            <constraint firstItem="QT0-uq-Jg1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="MIM-ts-QcX"/>
+                            <constraint firstAttribute="trailing" secondItem="QT0-uq-Jg1" secondAttribute="trailing" priority="750" constant="16" id="Pqh-eW-ljK"/>
+                            <constraint firstItem="QT0-uq-Jg1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="TC0-i5-BwA"/>
+                            <constraint firstItem="QT0-uq-Jg1" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="d9R-HV-dAu"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QT0-uq-Jg1" secondAttribute="trailing" constant="16" id="hSG-aM-YLm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Maze" id="XO7-M2-X2B"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="QT0-uq-Jg1" id="WzP-Zq-3Em"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,6 +60,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
