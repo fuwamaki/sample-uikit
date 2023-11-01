@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1501B42AF23CB70040CB7F /* MazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1501B32AF23CB70040CB7F /* MazeViewController.swift */; };
+		DD1501B62AF23CC40040CB7F /* MazeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1501B52AF23CC40040CB7F /* MazeViewController.storyboard */; };
 		DD16231F2A987283000FA188 /* SampleAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16231E2A987283000FA188 /* SampleAnimationViewController.swift */; };
 		DD1623212A9872A9000FA188 /* SampleAnimationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1623202A9872A9000FA188 /* SampleAnimationViewController.storyboard */; };
 		DD1623232A9876B6000FA188 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1623222A9876B6000FA188 /* TestViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD1501B32AF23CB70040CB7F /* MazeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeViewController.swift; sourceTree = "<group>"; };
+		DD1501B52AF23CC40040CB7F /* MazeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MazeViewController.storyboard; sourceTree = "<group>"; };
 		DD16231E2A987283000FA188 /* SampleAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAnimationViewController.swift; sourceTree = "<group>"; };
 		DD1623202A9872A9000FA188 /* SampleAnimationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleAnimationViewController.storyboard; sourceTree = "<group>"; };
 		DD1623222A9876B6000FA188 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				DD1623342AA55DB7000FA188 /* FeasibilityViewController.swift */,
 				DD3FA5EF2AD7BC2B006C8168 /* QiitaListViewController.swift */,
 				DD3FA5F12AD7BC3A006C8168 /* SampleEmptyViewController.swift */,
+				DD1501B32AF23CB70040CB7F /* MazeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 				DD1623362AA55DC0000FA188 /* FeasibilityViewController.storyboard */,
 				DD3FA5F52AD7C3E4006C8168 /* QiitaListViewController.storyboard */,
 				DD3FA5F32AD7BC48006C8168 /* SampleEmptyViewController.storyboard */,
+				DD1501B52AF23CC40040CB7F /* MazeViewController.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 				DD3FA5F42AD7BC48006C8168 /* SampleEmptyViewController.storyboard in Resources */,
 				DD3FA5F62AD7C3E4006C8168 /* QiitaListViewController.storyboard in Resources */,
 				DD1623312AA075C4000FA188 /* HorizontalPageViewController.storyboard in Resources */,
+				DD1501B62AF23CC40040CB7F /* MazeViewController.storyboard in Resources */,
 				DD884B2A2A45698D00B70487 /* Assets.xcassets in Resources */,
 				DD1623272A987758000FA188 /* TestViewController.storyboard in Resources */,
 				DD884B282A45698C00B70487 /* MainViewController.storyboard in Resources */,
@@ -263,6 +270,7 @@
 				DD1623332AA075CB000FA188 /* HorizontalPageViewController.swift in Sources */,
 				DD3FA5F02AD7BC2B006C8168 /* QiitaListViewController.swift in Sources */,
 				DD3FA6032AD7D2A1006C8168 /* UIImage+Addition.swift in Sources */,
+				DD1501B42AF23CB70040CB7F /* MazeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
