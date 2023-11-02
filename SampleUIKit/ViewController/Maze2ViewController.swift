@@ -140,6 +140,8 @@ extension Maze2ViewController: CustomCanvasViewDelegate {
             setupInitialData()
         }
 
+    }
+    func checkComplete() {
         let validIndexList = items.filter { $0.isValid }.compactMap { $0.index }
         if validIndexList.contains(24),
            validIndexList.contains(14),
@@ -192,10 +194,15 @@ private final class CustomCanvasView: PKCanvasView {
         let location = touch.location(in: self)
         canvasDelegate?.check(location: location)
     }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        canvasDelegate?.checkComplete()
+    }
 }
 
 private protocol CustomCanvasViewDelegate: AnyObject {
     func check(location: CGPoint)
+    func checkComplete()
 }
 
 private enum MazeItemType {
