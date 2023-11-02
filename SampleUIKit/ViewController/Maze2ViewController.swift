@@ -14,8 +14,8 @@ final class Maze2ViewController: UIViewController {
 
     @IBAction private func clickClearButton(_ sender: UIBarButtonItem) {
         canvasView.drawing = PKDrawing()
-        items = defaultItems
-        setupInitialData()
+        items = entity.defaultItems
+        updateDataSource()
     }
 
     private enum Section {
@@ -24,10 +24,17 @@ final class Maze2ViewController: UIViewController {
 
     static func instantiate() -> Maze2ViewController {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: Bundle(for: self))
-        return storyboard.instantiateInitialViewController() as! Maze2ViewController
+        let viewController = storyboard.instantiateInitialViewController() as! Maze2ViewController
+        viewController.entity = entity1
+        return viewController
     }
 
     private var dataSource: UICollectionViewDiffableDataSource<Section, MazeItem>!
+    private var isShowedPerfectAlert: Bool = false
+    private var entity: MazeEntity!
+    private lazy var items: [MazeItem] = {
+        entity.defaultItems
+    }()
 
     private lazy var canvasView: CustomCanvasView = {
         let canvasView = CustomCanvasView(frame: view.frame)
@@ -43,7 +50,7 @@ final class Maze2ViewController: UIViewController {
         view.addSubview(canvasView)
         setupCollectionViewLayout()
         setupDataSource()
-        setupInitialData()
+        updateDataSource()
     }
 
     private func setupCollectionViewLayout() {
@@ -81,39 +88,16 @@ final class Maze2ViewController: UIViewController {
         }
     }
 
-    private lazy var items: [MazeItem] = {
-        defaultItems
-    }()
-
-    private var defaultItems: [MazeItem] {
-        [
-            MazeItem(0, .dot), MazeItem(1, .wallHorizontal), MazeItem(2, .dot), MazeItem(3, .wallHorizontal), MazeItem(4, .dot), MazeItem(5, .wallHorizontal), MazeItem(6, .dot), MazeItem(7, .wallHorizontal), MazeItem(8, .dot), MazeItem(9, .wallHorizontal), MazeItem(10, .dot), MazeItem(11, .spaceHorizontal), MazeItem(12, .dot),
-            MazeItem(13, .wallVertical), MazeItem(14, .square), MazeItem(15, .spaceVertical), MazeItem(16, .square), MazeItem(17, .spaceVertical), MazeItem(18, .square), MazeItem(19, .spaceVertical), MazeItem(20, .square), MazeItem(21, .spaceVertical), MazeItem(22, .square), MazeItem(23, .spaceVertical), MazeItem(24, .square), MazeItem(25, .wallVertical),
-            MazeItem(26, .dot), MazeItem(27, .spaceHorizontal), MazeItem(28, .dot), MazeItem(29, .wallHorizontal), MazeItem(30, .dot), MazeItem(31, .wallHorizontal), MazeItem(32, .dot), MazeItem(33, .wallHorizontal), MazeItem(34, .dot), MazeItem(35, .wallHorizontal), MazeItem(36, .dot), MazeItem(37, .wallHorizontal), MazeItem(38, .dot),
-            MazeItem(39, .wallVertical), MazeItem(40, .square), MazeItem(41, .wallVertical), MazeItem(42, .square), MazeItem(43, .spaceVertical), MazeItem(44, .square), MazeItem(45, .spaceVertical), MazeItem(46, .square), MazeItem(47, .spaceVertical), MazeItem(48, .square), MazeItem(49, .spaceVertical), MazeItem(50, .square), MazeItem(51, .wallVertical),
-            MazeItem(52, .dot), MazeItem(53, .spaceHorizontal), MazeItem(54, .dot), MazeItem(55, .spaceHorizontal), MazeItem(56, .dot), MazeItem(57, .wallHorizontal), MazeItem(58, .dot), MazeItem(59, .wallHorizontal), MazeItem(60, .dot), MazeItem(61, .spaceHorizontal), MazeItem(62, .dot), MazeItem(63, .wallHorizontal), MazeItem(64, .dot),
-            MazeItem(65, .wallVertical), MazeItem(66, .square), MazeItem(67, .spaceVertical), MazeItem(68, .square), MazeItem(69, .wallVertical), MazeItem(70, .square), MazeItem(71, .spaceVertical), MazeItem(72, .square), MazeItem(73, .wallVertical), MazeItem(74, .square), MazeItem(75, .spaceVertical), MazeItem(76, .square), MazeItem(77, .wallVertical),
-            MazeItem(78, .dot), MazeItem(79, .wallHorizontal), MazeItem(80, .dot), MazeItem(81, .wallHorizontal), MazeItem(82, .dot), MazeItem(83, .spaceHorizontal), MazeItem(84, .dot), MazeItem(85, .spaceHorizontal), MazeItem(86, .dot), MazeItem(87, .wallHorizontal), MazeItem(88, .dot), MazeItem(89, .spaceHorizontal), MazeItem(90, .dot),
-            MazeItem(91, .wallVertical), MazeItem(92, .square), MazeItem(93, .spaceVertical), MazeItem(94, .square), MazeItem(95, .spaceVertical), MazeItem(96, .square), MazeItem(97, .wallVertical), MazeItem(98, .square), MazeItem(99, .spaceVertical), MazeItem(100, .square), MazeItem(101, .spaceVertical), MazeItem(102, .square), MazeItem(103, .wallVertical),
-            MazeItem(104, .dot), MazeItem(105, .spaceHorizontal), MazeItem(106, .dot), MazeItem(107, .wallHorizontal), MazeItem(108, .dot), MazeItem(109, .wallHorizontal), MazeItem(110, .dot), MazeItem(111, .wallHorizontal), MazeItem(112, .dot), MazeItem(113, .wallHorizontal), MazeItem(114, .dot), MazeItem(115, .spaceHorizontal), MazeItem(116, .dot),
-            MazeItem(117, .wallVertical), MazeItem(118, .square), MazeItem(119, .wallVertical), MazeItem(120, .square), MazeItem(121, .spaceVertical), MazeItem(122, .square), MazeItem(123, .spaceVertical), MazeItem(124, .square), MazeItem(125, .spaceVertical), MazeItem(126, .square), MazeItem(127, .wallVertical), MazeItem(128, .square), MazeItem(129, .wallVertical),
-            MazeItem(130, .dot), MazeItem(131, .spaceHorizontal), MazeItem(132, .dot), MazeItem(133, .spaceHorizontal), MazeItem(134, .dot), MazeItem(135, .wallHorizontal), MazeItem(136, .dot), MazeItem(137, .spaceHorizontal), MazeItem(138, .dot), MazeItem(139, .wallHorizontal), MazeItem(140, .dot), MazeItem(141, .wallHorizontal), MazeItem(142, .dot),
-            MazeItem(143, .wallVertical), MazeItem(144, .square), MazeItem(145, .spaceVertical), MazeItem(146, .square), MazeItem(147, .spaceVertical), MazeItem(148, .square), MazeItem(149, .wallVertical), MazeItem(150, .square), MazeItem(151, .spaceVertical), MazeItem(152, .square), MazeItem(153, .spaceVertical), MazeItem(154, .square), MazeItem(155, .wallVertical),
-            MazeItem(156, .dot), MazeItem(157, .wallHorizontal), MazeItem(158, .dot), MazeItem(159, .wallHorizontal), MazeItem(160, .dot), MazeItem(161, .wallHorizontal), MazeItem(162, .dot), MazeItem(163, .wallHorizontal), MazeItem(164, .dot), MazeItem(165, .wallHorizontal), MazeItem(166, .dot), MazeItem(167, .spaceHorizontal), MazeItem(168, .dot)
-        ]
-    }
-
-    private func setupInitialData() {
+    private func updateDataSource() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, MazeItem>()
         snapshot.appendSections([.main])
         snapshot.appendItems(items)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 
-    private var isShowed: Bool = false
     private func showPerfectAlert() {
-        guard !isShowed else { return }
-        isShowed = true
+        guard !isShowedPerfectAlert else { return }
+        isShowedPerfectAlert = true
         let alert = UIAlertController(title: "よくできました！！！", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "とじる", style: .default) { _ in
             self.dismiss(animated: true)
@@ -122,59 +106,39 @@ final class Maze2ViewController: UIViewController {
     }
 }
 
+// MARK: UICollectionViewDelegateFlowLayout
 extension Maze2ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return items[indexPath.row].type.size(collectionViewFrame: collectionView.frame)
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let oneSide: CGFloat = (collectionView.frame.width - CGFloat(8 * entity.dotSideCount) - 0.01) / CGFloat(entity.roadSideCount) // 0.01は調整用
+        return items[indexPath.row].type.size(collectionViewFrame: collectionView.frame, oneSide: oneSide)
     }
 }
 
+// MARK: CustomCanvasViewDelegate
 extension Maze2ViewController: CustomCanvasViewDelegate {
     func check(location: CGPoint) {
         if let index = items.firstIndex(where: { $0.isRange(
             collectionViewFrame: collectionView.frame,
-            location: location
-        ) }),
+            location: location,
+            entity: entity
+        )}),
            !items[index].isValid,
            items[index].type.isSpace {
             items[index] = items[index].valid
-            setupInitialData()
+            updateDataSource()
         }
 
     }
     func checkComplete() {
-        let validIndexList = items.filter { $0.isValid }.compactMap { $0.index }
-        if validIndexList.contains(24),
-           validIndexList.contains(14),
-           validIndexList.contains(16),
-           validIndexList.contains(18),
-           validIndexList.contains(20),
-           validIndexList.contains(22),
-           validIndexList.contains(40),
-           validIndexList.contains(42),
-           validIndexList.contains(44),
-           validIndexList.contains(46),
-           validIndexList.contains(48),
-           validIndexList.contains(66),
-           validIndexList.contains(68),
-           validIndexList.contains(70),
-           validIndexList.contains(72),
-           validIndexList.contains(74),
-           validIndexList.contains(76),
-           validIndexList.contains(92),
-           validIndexList.contains(94),
-           validIndexList.contains(96),
-           validIndexList.contains(98),
-           validIndexList.contains(100),
-           validIndexList.contains(102),
-           validIndexList.contains(118),
-           validIndexList.contains(120),
-           validIndexList.contains(122),
-           validIndexList.contains(124),
-           validIndexList.contains(144),
-           validIndexList.contains(146),
-           validIndexList.contains(150),
-           validIndexList.contains(152),
-           validIndexList.contains(154) {
+        let isCompleted = items
+            .filter { $0.isValid }
+            .compactMap { $0.index }
+            .allContains(entity.validIds)
+        if isCompleted {
             showPerfectAlert()
         }
     }
@@ -220,8 +184,7 @@ private enum MazeItemType {
         }
     }
 
-    func size(collectionViewFrame: CGRect) -> CGSize {
-        let oneSide: CGFloat = (collectionViewFrame.width - (8 * 7) - 0.1) / 6 // 0.1は調整用
+    func size(collectionViewFrame: CGRect, oneSide: CGFloat) -> CGSize {
         return switch self {
         case .dot:
             CGSize(width: 8, height: 8)
@@ -250,17 +213,254 @@ private struct MazeItem: Hashable {
         MazeItem(index, type, isValid: true)
     }
 
-    func isRange(collectionViewFrame: CGRect, location: CGPoint) -> Bool {
+    func isRange(collectionViewFrame: CGRect, location: CGPoint, entity: MazeEntity) -> Bool {
         let origin = CGPoint(x: collectionViewFrame.minX, y: collectionViewFrame.minY)
-        let oneSide: CGFloat = (collectionViewFrame.width - (8 * 7) - 0.1) / 6 // 0.1は調整用
-        let width = type.size(collectionViewFrame: collectionViewFrame).width
-        let height = type.size(collectionViewFrame: collectionViewFrame).height
-        let numberX = index % 13
-        let numberY = index / 13
+        let oneSide: CGFloat = (collectionViewFrame.width - CGFloat(8 * entity.dotSideCount) - 0.01) / CGFloat(entity.roadSideCount) // 0.01は調整用
+        let numberX = index % entity.sideCount
+        let numberY = index / entity.sideCount
         let itemX = origin.x + CGFloat(CGFloat(numberX / 2) * CGFloat(8.0 + oneSide)) + CGFloat(CGFloat(numberX % 2) * 8.0)
         let itemY = origin.y + CGFloat(CGFloat(numberY / 2) * CGFloat(8.0 + oneSide)) + CGFloat(CGFloat(numberY % 2) * 8.0)
+        let width = type.size(collectionViewFrame: collectionViewFrame, oneSide: oneSide).width
+        let height = type.size(collectionViewFrame: collectionViewFrame, oneSide: oneSide).height
         let itemFrame = CGRect(x: itemX, y: itemY, width: width, height: height)
         return (itemFrame.minX <= location.x && location.x <= itemFrame.maxX)
         && (itemFrame.minY <= location.y && location.y <= itemFrame.maxY)
     }
 }
+
+private struct MazeEntity {
+    let validIds: [Int]
+    let dictionary: [(index: Int, type: MazeItemType)]
+
+    init(validIds: [Int], dictionary: [(index: Int, type: MazeItemType)]) {
+        self.validIds = validIds
+        self.dictionary = dictionary
+    }
+
+    var defaultItems: [MazeItem] {
+        dictionary.compactMap { MazeItem($0.index, $0.type) }
+    }
+
+    // 一辺の数。絶対奇数。
+    var sideCount: Int {
+        Int(sqrt(Double(dictionary.count)))
+    }
+
+    // 一辺のdot総数。
+    var dotSideCount: Int {
+        Int(sideCount/2) + 1
+    }
+
+    // 一辺のdot以外の総数。
+    var roadSideCount: Int {
+        sideCount - dotSideCount
+    }
+}
+
+private let entity1 = MazeEntity(
+    validIds: [
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        40,
+        42,
+        44,
+        46,
+        48,
+        66,
+        68,
+        70,
+        72,
+        74,
+        76,
+        92,
+        94,
+        96,
+        98,
+        100,
+        102,
+        118,
+        120,
+        122,
+        124,
+        144,
+        146,
+        150,
+        152,
+        154
+    ],
+    dictionary: [
+        (index: 0, type: .dot),
+        (index: 1, type: .wallHorizontal),
+        (index: 2, type: .dot),
+        (index: 3, type: .wallHorizontal),
+        (index: 4, type: .dot),
+        (index: 5, type: .wallHorizontal),
+        (index: 6, type: .dot),
+        (index: 7, type: .wallHorizontal),
+        (index: 8, type: .dot),
+        (index: 9, type: .wallHorizontal),
+        (index: 10, type: .dot),
+        (index: 11, type: .spaceHorizontal),
+        (index: 12, type: .dot),
+        (index: 13, type: .wallVertical),
+        (index: 14, type: .square),
+        (index: 15, type: .spaceVertical),
+        (index: 16, type: .square),
+        (index: 17, type: .spaceVertical),
+        (index: 18, type: .square),
+        (index: 19, type: .spaceVertical),
+        (index: 20, type: .square),
+        (index: 21, type: .spaceVertical),
+        (index: 22, type: .square),
+        (index: 23, type: .spaceVertical),
+        (index: 24, type: .square),
+        (index: 25, type: .wallVertical),
+        (index: 26, type: .dot),
+        (index: 27, type: .spaceHorizontal),
+        (index: 28, type: .dot),
+        (index: 29, type: .wallHorizontal),
+        (index: 30, type: .dot),
+        (index: 31, type: .wallHorizontal),
+        (index: 32, type: .dot),
+        (index: 33, type: .wallHorizontal),
+        (index: 34, type: .dot),
+        (index: 35, type: .wallHorizontal),
+        (index: 36, type: .dot),
+        (index: 37, type: .wallHorizontal),
+        (index: 38, type: .dot),
+        (index: 39, type: .wallVertical),
+        (index: 40, type: .square),
+        (index: 41, type: .wallVertical),
+        (index: 42, type: .square),
+        (index: 43, type: .spaceVertical),
+        (index: 44, type: .square),
+        (index: 45, type: .spaceVertical),
+        (index: 46, type: .square),
+        (index: 47, type: .spaceVertical),
+        (index: 48, type: .square),
+        (index: 49, type: .spaceVertical),
+        (index: 50, type: .square),
+        (index: 51, type: .wallVertical),
+        (index: 52, type: .dot),
+        (index: 53, type: .spaceHorizontal),
+        (index: 54, type: .dot),
+        (index: 55, type: .spaceHorizontal),
+        (index: 56, type: .dot),
+        (index: 57, type: .wallHorizontal),
+        (index: 58, type: .dot),
+        (index: 59, type: .wallHorizontal),
+        (index: 60, type: .dot),
+        (index: 61, type: .spaceHorizontal),
+        (index: 62, type: .dot),
+        (index: 63, type: .wallHorizontal),
+        (index: 64, type: .dot),
+        (index: 65, type: .wallVertical),
+        (index: 66, type: .square),
+        (index: 67, type: .spaceVertical),
+        (index: 68, type: .square),
+        (index: 69, type: .wallVertical),
+        (index: 70, type: .square),
+        (index: 71, type: .spaceVertical),
+        (index: 72, type: .square),
+        (index: 73, type: .wallVertical),
+        (index: 74, type: .square),
+        (index: 75, type: .spaceVertical),
+        (index: 76, type: .square),
+        (index: 77, type: .wallVertical),
+        (index: 78, type: .dot),
+        (index: 79, type: .wallHorizontal),
+        (index: 80, type: .dot),
+        (index: 81, type: .wallHorizontal),
+        (index: 82, type: .dot),
+        (index: 83, type: .spaceHorizontal),
+        (index: 84, type: .dot),
+        (index: 85, type: .spaceHorizontal),
+        (index: 86, type: .dot),
+        (index: 87, type: .wallHorizontal),
+        (index: 88, type: .dot),
+        (index: 89, type: .spaceHorizontal),
+        (index: 90, type: .dot),
+        (index: 91, type: .wallVertical),
+        (index: 92, type: .square),
+        (index: 93, type: .spaceVertical),
+        (index: 94, type: .square),
+        (index: 95, type: .spaceVertical),
+        (index: 96, type: .square),
+        (index: 97, type: .wallVertical),
+        (index: 98, type: .square),
+        (index: 99, type: .spaceVertical),
+        (index: 100, type: .square),
+        (index: 101, type: .spaceVertical),
+        (index: 102, type: .square),
+        (index: 103, type: .wallVertical),
+        (index: 104, type: .dot),
+        (index: 105, type: .spaceHorizontal),
+        (index: 106, type: .dot),
+        (index: 107, type: .wallHorizontal),
+        (index: 108, type: .dot),
+        (index: 109, type: .wallHorizontal),
+        (index: 110, type: .dot),
+        (index: 111, type: .wallHorizontal),
+        (index: 112, type: .dot),
+        (index: 113, type: .wallHorizontal),
+        (index: 114, type: .dot),
+        (index: 115, type: .spaceHorizontal),
+        (index: 116, type: .dot),
+        (index: 117, type: .wallVertical),
+        (index: 118, type: .square),
+        (index: 119, type: .wallVertical),
+        (index: 120, type: .square),
+        (index: 121, type: .spaceVertical),
+        (index: 122, type: .square),
+        (index: 123, type: .spaceVertical),
+        (index: 124, type: .square),
+        (index: 125, type: .spaceVertical),
+        (index: 126, type: .square),
+        (index: 127, type: .wallVertical),
+        (index: 128, type: .square),
+        (index: 129, type: .wallVertical),
+        (index: 130, type: .dot),
+        (index: 131, type: .spaceHorizontal),
+        (index: 132, type: .dot),
+        (index: 133, type: .spaceHorizontal),
+        (index: 134, type: .dot),
+        (index: 135, type: .wallHorizontal),
+        (index: 136, type: .dot),
+        (index: 137, type: .spaceHorizontal),
+        (index: 138, type: .dot),
+        (index: 139, type: .wallHorizontal),
+        (index: 140, type: .dot),
+        (index: 141, type: .wallHorizontal),
+        (index: 142, type: .dot),
+        (index: 143, type: .wallVertical),
+        (index: 144, type: .square),
+        (index: 145, type: .spaceVertical),
+        (index: 146, type: .square),
+        (index: 147, type: .spaceVertical),
+        (index: 148, type: .square),
+        (index: 149, type: .wallVertical),
+        (index: 150, type: .square),
+        (index: 151, type: .spaceVertical),
+        (index: 152, type: .square),
+        (index: 153, type: .spaceVertical),
+        (index: 154, type: .square),
+        (index: 155, type: .wallVertical),
+        (index: 156, type: .dot),
+        (index: 157, type: .wallHorizontal),
+        (index: 158, type: .dot),
+        (index: 159, type: .wallHorizontal),
+        (index: 160, type: .dot),
+        (index: 161, type: .wallHorizontal),
+        (index: 162, type: .dot),
+        (index: 163, type: .wallHorizontal),
+        (index: 164, type: .dot),
+        (index: 165, type: .wallHorizontal),
+        (index: 166, type: .dot),
+        (index: 167, type: .spaceHorizontal),
+        (index: 168, type: .dot)
+    ]
+)

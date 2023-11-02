@@ -36,6 +36,7 @@
 		DD884B282A45698C00B70487 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD884B262A45698C00B70487 /* MainViewController.storyboard */; };
 		DD884B2A2A45698D00B70487 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD884B292A45698D00B70487 /* Assets.xcassets */; };
 		DD884B2D2A45698D00B70487 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD884B2B2A45698D00B70487 /* LaunchScreen.storyboard */; };
+		DDC8D32B2AF364FE00A8BEC0 /* Array+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8D32A2AF364FE00A8BEC0 /* Array+Addition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		DD884B292A45698D00B70487 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD884B2C2A45698D00B70487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD884B2E2A45698D00B70487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC8D32A2AF364FE00A8BEC0 /* Array+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Addition.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				DD3FA6022AD7D2A1006C8168 /* UIImage+Addition.swift */,
+				DDC8D32A2AF364FE00A8BEC0 /* Array+Addition.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				DD3FA5FA2AD7C529006C8168 /* QiitaItem.swift in Sources */,
 				DD884B212A45698C00B70487 /* AppDelegate.swift in Sources */,
 				DD1623292A987CAB000FA188 /* CounterViewController.swift in Sources */,
+				DDC8D32B2AF364FE00A8BEC0 /* Array+Addition.swift in Sources */,
 				DD884B232A45698C00B70487 /* SceneDelegate.swift in Sources */,
 				DD3FA5FC2AD7C53B006C8168 /* APIClient.swift in Sources */,
 				DD16231F2A987283000FA188 /* SampleAnimationViewController.swift in Sources */,
